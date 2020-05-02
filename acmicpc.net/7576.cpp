@@ -24,7 +24,7 @@ int bfs() {
 		for (int i = 0; i < 4; i++) {
 			int ny = y + dirs[i][0];
 			int nx = x + dirs[i][1];
-			if (checkRange(ny, nx) && map[ny][nx] == 0) {
+			if (checkRange(ny, nx) && !map[ny][nx]) {
 				madeToOne++;
 				map[ny][nx] = 1;
 				q.push(pair<int, int>(ny, nx));
@@ -32,7 +32,7 @@ int bfs() {
 			}
 		}
 		todayTaskNum--;
-		if (todayTaskNum == 0) {
+		if (!todayTaskNum) {
 			todayTaskNum = temp;
 			temp = 0;
 			day++;
@@ -51,7 +51,7 @@ int main() {
 		for (int j = 0; j < M; j++) {
 			int input;
 			cin >> input;
-			if (input == 0) {
+			if (!input) {
 				modu = false;
 				zerosCnt++;
 			}
